@@ -1,6 +1,6 @@
-# ride_rental
+# Vehicle Rental
 
-A Vehcile Rental Application made in FLutter.
+A Vehicle Rental Application made in FLutter.
 
 - Sqflite
 - Provider
