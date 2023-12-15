@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../database/db_handler.dart';
-import 'addExpense_screen.dart';
 
 class ExpenseDetailsScreen extends StatefulWidget {
   String name;

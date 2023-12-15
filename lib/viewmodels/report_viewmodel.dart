@@ -18,6 +18,5 @@ class ReportViewModel extends ChangeNotifier {
     } else {
       return DBHandler().getCustomerBasedBooking(query.trim());
     }
-    // notifyListeners();
   }
 }

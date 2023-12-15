@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../database/db_handler.dart';
 import '../viewmodels/driver_viewmodel.dart';
-import 'home_screen.dart';
 
 class DriverScreen extends StatefulWidget {
   const DriverScreen({super.key});
@@ -15,12 +14,6 @@ class DriverScreen extends StatefulWidget {
 }
 
 class _DriverScreenState extends State<DriverScreen> {
-  // @override
-  // void didChangeDependencies() {
-  //   Provider.of<DriverViewModel>(context).getDrivers();
-  //   super.didChangeDependencies();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Consumer<DriverViewModel>(builder: (context, provider, child) {

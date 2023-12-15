@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../components/custom_widgets.dart';
 import '../../models/booking_model.dart';
 import '../../viewmodels/Report_viewmodel.dart';
+import '../../viewmodels/reportDetails_viewmodel.dart';
 import 'reportDetails_screen.dart';
 
 class ReportScreen extends StatefulWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../components/custom_widgets.dart';
 import '../database/db_handler.dart';
@@ -70,9 +69,10 @@ class _BookingState extends State<Booking> {
                       ),
                       snapshot.data[0].isEmpty
                           ? CustomWidgets().customTextField(
-                              controller: provider.vNumController,
+                              controller: TextEditingController(),
                               labelText: 'No Driver Found',
-                              readOnly: true)
+                              readOnly: true,
+                            )
                           : Container(
                               margin: const EdgeInsets.symmetric(vertical: 3),
                               height: 50,
@@ -105,9 +105,10 @@ class _BookingState extends State<Booking> {
                             ),
                       snapshot.data[1].isEmpty
                           ? CustomWidgets().customTextField(
-                              controller: provider.vNumController,
+                              controller: TextEditingController(),
                               labelText: 'No Vehicle Found',
-                              readOnly: true)
+                              readOnly: true,
+                            )
                           : Container(
                               margin: const EdgeInsets.symmetric(vertical: 3),
                               height: 50,

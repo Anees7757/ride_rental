@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../database/db_handler.dart';
+import '../models/booking_model.dart';
 import '../models/driver_model.dart';
 import '../models/expense_model.dart';
 import '../models/vehicle_model.dart';
@@ -23,12 +24,22 @@ class ReportDetailsViewModel extends ChangeNotifier {
     driver = await DBHandler().getDriverWithName(data.first.driver);
   }
 
-  getTotalExpense(List<Expense> data) {
-    totalExpense = 0;
-    net = 0;
-    for (var i in data) {
+  getData(List<Expense> exp, List<Booking> booking) {
+    resetData();
+    getDriver(booking);
+    getVehicles(booking);
+    bookingAmount = booking.first.amount;
+    for (var i in exp) {
       totalExpense += i.amount;
     }
     net = totalExpense + bookingAmount;
+    // notifyListeners();
+  }
+
+  resetData() {
+    totalExpense = 0;
+    net = 0;
+    bookingAmount = 0;
+    notifyListeners();
   }
 }

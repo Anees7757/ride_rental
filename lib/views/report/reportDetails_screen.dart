@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -68,14 +66,6 @@ class _ReportDetailsState extends State<ReportDetails> {
               DBHandler().getCustomerBasedBooking(widget.name)
             ]),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot.hasData) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  provider.getTotalExpense(snapshot.data![0]);
-                  provider.bookingAmount = snapshot.data![1].first.amount;
-                  provider.getDriver(snapshot.data![1]);
-                  provider.getVehicles(snapshot.data![1]);
-                });
-              }
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
                   child: Image.asset(
@@ -86,6 +76,10 @@ class _ReportDetailsState extends State<ReportDetails> {
                 );
               } else if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    provider.getData(snapshot.data![0], snapshot.data![1]);
+                  });
+
                   return Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                     width: double.infinity,
